@@ -1,0 +1,6 @@
+--- !ruby/object:Hangman
+secret_word: aztec
+attempts: 5
+guessed_characters: a--e-
+missed_characters:
+- v
