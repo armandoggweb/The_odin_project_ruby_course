@@ -1,25 +1,24 @@
 require_relative 'chess_pieces.rb'
+require 'yaml'
 include Chess_pieces
+
 class Square
     attr_reader :row, :col
-    attr_accessor :movements, :parent, :content
+    attr_accessor :content
     def initialize(row, col)
         @row = row
         @col = col
         @content = nil
     end
-    def to_s
-        "[#{@row}, #{@col}]"
-    end
-
 end
 
 class Chess
-    attr_reader :board
+    attr_reader :board, :turn
     def initialize
         @board = build_board
+        @turn = "white"
     end
-
+    private
     def build_board
         @board = Array.new(8){Array.new(8)}
         @board.each_index do |row|
@@ -138,10 +137,33 @@ class Chess
         end
         false
     end
+
+    def pawn_promotion(position)
+        current = @board[position.first][position.last].content
+        if current.color == "black" && position.first == 7 || current.color == "white" && position.first == 0
+            puts "To what figure do you want to promote your pawn? Queen(Q), Rook(R), Bishop(B), Knight(K)"
+            figure = gets.chomp.upcase
+            case figure
+            when 'Q'
+                @board[position.first][position.last].content = Queen.new(current.color)
+            when 'R'
+                @board[position.first][position.last].content = Rook.new(current.color)
+            when 'B'
+                @board[position.first][position.last].content = Bishop.new(current.color)
+            when 'K'
+                @board[position.first][position.last].content = Knight.new(current.color)
+            end
+            puts "Your pawn has been promoted!"
+            draw_board
+        end
+    end
+
     def move_piece(origin, target)
         @board[target.first][target.last].content = @board[origin.first][origin.last].content
         @board[origin.first][origin.last].content = nil
+        pawn_promotion(target) if @board[target.first][target.last].content.is_a?(Pawn)
     end
+
     def legal_move?(origin, target)
         current = @board[origin.first][origin.last].content
         if !current.nil? && current.legal_move?(origin, target)
@@ -155,8 +177,10 @@ class Chess
         end
         true
     end
+    
     def player_choice(color)
         move = get_move()
+        
         unless move[:origin].nil?
             origin = @board[move[:origin].first][move[:origin].last].content
             o_color = origin.color unless origin.nil?
@@ -166,8 +190,10 @@ class Chess
             origin = @board[move[:origin].first][move[:origin].last].content
             o_color = origin.color unless origin.nil?
         end
+        
         move_piece(move[:origin], move[:target])
     end
+
     def check_mate?(color)
         @board.each do |row|
             row.each do |square|
@@ -177,31 +203,60 @@ class Chess
         true
     end
 
+    def save_game
+        Dir.mkdir("saves") unless Dir.exist?('saves')
+        File.open("saves/saved_game.yaml", 'w') do |file|
+            file.puts(YAML::dump(self))
+        end
+    end
+    def load_game
+        data = YAML::load(File.read('saves/saved_game.yaml'))
+        @board = data.board
+        @turn = data.turn
+    end
+
+    def menu
+        puts "Do you want to save (S), load (L) or exit(E) the game. Press enter to continue..."
+        option = gets.chomp.upcase
+        case option
+        when 'S'
+            save_game
+            puts "Press E if you want to leave or enter to continue..."
+            end_game = gets.chomp
+            return true if  end_game == "E"
+        when 'L'
+            load_game
+            draw_board
+        when 'E'
+            return true
+        end 
+        false
+    end
+
+    public
+
     def play
         puts "Start!"
         set_team("black")
         set_team("white")
+        end_game = false
         draw_board()
-        loop do
-            
-            puts "White moves!"
-            player_choice("white")
-            if check_mate?("black")
-                puts "White wins!" 
-                break
-            end
-
-            draw_board()
-            puts "Black moves!"
-            player_choice("black")
-            draw_board()   
-            if check_mate?("white")
-                puts "Black wins!" 
-                break
+        until end_game do
+            2.times do
+                unless end_game
+                    end_game = menu
+                    break if end_game
+                    puts "#{@turn.capitalize} moves!"
+                    player_choice(@turn)
+                    draw_board()
+                    @turn == "white" ? @turn = "black" : @turn = "white"
+                    if check_mate?(@turn)
+                        puts "Check Mate!" 
+                        break
+                    end
+                end
             end
         end
     end
+
 end
-game = Chess.new
-game.play
-#game.move_parser("9p")

@@ -1,0 +1,319 @@
+--- !ruby/object:Chess
+board:
+- - !ruby/object:Square
+    row: 0
+    col: 0
+    content: !ruby/object:Chess_pieces::Rook
+      icon: " ♜ "
+      color: black
+  - !ruby/object:Square
+    row: 0
+    col: 1
+    content: 
+  - !ruby/object:Square
+    row: 0
+    col: 2
+    content: !ruby/object:Chess_pieces::Bishop
+      icon: " ♝ "
+      color: black
+  - !ruby/object:Square
+    row: 0
+    col: 3
+    content: !ruby/object:Chess_pieces::King
+      icon: " ♚ "
+      color: black
+  - !ruby/object:Square
+    row: 0
+    col: 4
+    content: !ruby/object:Chess_pieces::Queen
+      icon: " ♛ "
+      color: black
+  - !ruby/object:Square
+    row: 0
+    col: 5
+    content: !ruby/object:Chess_pieces::Bishop
+      icon: " ♝ "
+      color: black
+  - !ruby/object:Square
+    row: 0
+    col: 6
+    content: !ruby/object:Chess_pieces::Knight
+      icon: " ♞ "
+      color: black
+  - !ruby/object:Square
+    row: 0
+    col: 7
+    content: !ruby/object:Chess_pieces::Rook
+      icon: " ♜ "
+      color: black
+- - !ruby/object:Square
+    row: 1
+    col: 0
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♟ "
+      color: black
+  - !ruby/object:Square
+    row: 1
+    col: 1
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♙ "
+      color: white
+  - !ruby/object:Square
+    row: 1
+    col: 2
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♟ "
+      color: black
+  - !ruby/object:Square
+    row: 1
+    col: 3
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♟ "
+      color: black
+  - !ruby/object:Square
+    row: 1
+    col: 4
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♟ "
+      color: black
+  - !ruby/object:Square
+    row: 1
+    col: 5
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♟ "
+      color: black
+  - !ruby/object:Square
+    row: 1
+    col: 6
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♟ "
+      color: black
+  - !ruby/object:Square
+    row: 1
+    col: 7
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♟ "
+      color: black
+- - !ruby/object:Square
+    row: 2
+    col: 0
+    content: 
+  - !ruby/object:Square
+    row: 2
+    col: 1
+    content: 
+  - !ruby/object:Square
+    row: 2
+    col: 2
+    content: 
+  - !ruby/object:Square
+    row: 2
+    col: 3
+    content: 
+  - !ruby/object:Square
+    row: 2
+    col: 4
+    content: 
+  - !ruby/object:Square
+    row: 2
+    col: 5
+    content: 
+  - !ruby/object:Square
+    row: 2
+    col: 6
+    content: 
+  - !ruby/object:Square
+    row: 2
+    col: 7
+    content: 
+- - !ruby/object:Square
+    row: 3
+    col: 0
+    content: 
+  - !ruby/object:Square
+    row: 3
+    col: 1
+    content: 
+  - !ruby/object:Square
+    row: 3
+    col: 2
+    content: 
+  - !ruby/object:Square
+    row: 3
+    col: 3
+    content: 
+  - !ruby/object:Square
+    row: 3
+    col: 4
+    content: 
+  - !ruby/object:Square
+    row: 3
+    col: 5
+    content: 
+  - !ruby/object:Square
+    row: 3
+    col: 6
+    content: 
+  - !ruby/object:Square
+    row: 3
+    col: 7
+    content: 
+- - !ruby/object:Square
+    row: 4
+    col: 0
+    content: 
+  - !ruby/object:Square
+    row: 4
+    col: 1
+    content: 
+  - !ruby/object:Square
+    row: 4
+    col: 2
+    content: 
+  - !ruby/object:Square
+    row: 4
+    col: 3
+    content: 
+  - !ruby/object:Square
+    row: 4
+    col: 4
+    content: 
+  - !ruby/object:Square
+    row: 4
+    col: 5
+    content: 
+  - !ruby/object:Square
+    row: 4
+    col: 6
+    content: 
+  - !ruby/object:Square
+    row: 4
+    col: 7
+    content: 
+- - !ruby/object:Square
+    row: 5
+    col: 0
+    content: 
+  - !ruby/object:Square
+    row: 5
+    col: 1
+    content: 
+  - !ruby/object:Square
+    row: 5
+    col: 2
+    content: 
+  - !ruby/object:Square
+    row: 5
+    col: 3
+    content: 
+  - !ruby/object:Square
+    row: 5
+    col: 4
+    content: 
+  - !ruby/object:Square
+    row: 5
+    col: 5
+    content: 
+  - !ruby/object:Square
+    row: 5
+    col: 6
+    content: 
+  - !ruby/object:Square
+    row: 5
+    col: 7
+    content: 
+- - !ruby/object:Square
+    row: 6
+    col: 0
+    content: 
+  - !ruby/object:Square
+    row: 6
+    col: 1
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♙ "
+      color: white
+  - !ruby/object:Square
+    row: 6
+    col: 2
+    content: !ruby/object:Chess_pieces::Knight
+      icon: " ♞ "
+      color: black
+  - !ruby/object:Square
+    row: 6
+    col: 3
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♙ "
+      color: white
+  - !ruby/object:Square
+    row: 6
+    col: 4
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♙ "
+      color: white
+  - !ruby/object:Square
+    row: 6
+    col: 5
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♙ "
+      color: white
+  - !ruby/object:Square
+    row: 6
+    col: 6
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♙ "
+      color: white
+  - !ruby/object:Square
+    row: 6
+    col: 7
+    content: !ruby/object:Chess_pieces::Pawn
+      icon: " ♙ "
+      color: white
+- - !ruby/object:Square
+    row: 7
+    col: 0
+    content: !ruby/object:Chess_pieces::Rook
+      icon: " ♖ "
+      color: white
+  - !ruby/object:Square
+    row: 7
+    col: 1
+    content: !ruby/object:Chess_pieces::Knight
+      icon: " ♘ "
+      color: white
+  - !ruby/object:Square
+    row: 7
+    col: 2
+    content: !ruby/object:Chess_pieces::Bishop
+      icon: " ♗ "
+      color: white
+  - !ruby/object:Square
+    row: 7
+    col: 3
+    content: !ruby/object:Chess_pieces::King
+      icon: " ♔ "
+      color: white
+  - !ruby/object:Square
+    row: 7
+    col: 4
+    content: !ruby/object:Chess_pieces::Queen
+      icon: " ♕ "
+      color: white
+  - !ruby/object:Square
+    row: 7
+    col: 5
+    content: !ruby/object:Chess_pieces::Bishop
+      icon: " ♗ "
+      color: white
+  - !ruby/object:Square
+    row: 7
+    col: 6
+    content: !ruby/object:Chess_pieces::Knight
+      icon: " ♘ "
+      color: white
+  - !ruby/object:Square
+    row: 7
+    col: 7
+    content: !ruby/object:Chess_pieces::Rook
+      icon: " ♖ "
+      color: white
+turn: white
